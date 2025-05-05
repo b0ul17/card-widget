@@ -1,45 +1,86 @@
-# card-widget
+# 🔌 Job Widget (Vue 3 Custom Element)
 
-This template should help get you started developing with Vue 3 in Vite.
+This project provides a lightweight, embeddable job listing widget built with Vue 3 and compiled as a custom element (Web Component). It can be dropped into **any website**, regardless of stack (HTML, WordPress, React, etc.).
 
-## Recommended IDE Setup
+---
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Features
 
-## Type Support for `.vue` Imports in TS
+- 📦 Bundled as a single JavaScript file for CDN use
+- 🧱 Renders job ads as clean, responsive cards
+- 🔒 Uses Shadow DOM to prevent CSS conflicts
+- 🔧 Host websites can pass custom query and result count
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+---
 
-## Customize configuration
+## 📦 Installation
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Build the widget:
 
-## Project Setup
-
-```sh
-pnpm install
+```bash
+npm install
+npm run build
 ```
 
-### Compile and Hot-Reload for Development
+Output will be in `dist/job-widget.umd.js`.
 
-```sh
-pnpm dev
+---
+
+## 🌐 Usage (On Any Website)
+
+Embed this in your HTML:
+
+```html
+<script src="https://yourcdn.com/job-widget.umd.js" data-query="q=frontend" data-count="3"></script>
+
+<div id="job-widget-container"></div>
 ```
 
-### Type-Check, Compile and Minify for Production
+- `data-query`: Query string to filter job ads
+- `data-count`: Number of jobs to show (default: `3`)
 
-```sh
-pnpm build
+---
+
+## 🧪 Local Development
+
+Start Vite dev server:
+
+```bash
+npm run dev
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Create an `index.html` in your project root for local testing:
 
-```sh
-pnpm test:unit
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Job Widget</title>
+  </head>
+  <body>
+    <div id="job-widget-container"></div>
+    <script type="module" src="/src/main.ts" data-query="q=frontend" data-count="3"></script>
+  </body>
+</html>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Then open `http://localhost:5173` in your browser.
 
-```sh
-pnpm lint
+---
+
+## 📁 Project Structure
+
 ```
+src/
+  ├─ JobCard.ce.vue      # Vue component (custom element)
+  ├─ main.ts             # Script that mounts widget on load
+  ├─ shims-vue.d.ts      # TypeScript Vue file shim
+vite.config.js           # Build config for UMD
+index.html               # Optional test page
+```
+
+---
+
+## 📜 License
+
+MIT
