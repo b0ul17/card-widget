@@ -12,7 +12,11 @@ const props = defineProps({
 interface Job {
   title: string
   image: string
-  location: string
+  location: {
+    country: string,
+    country_code: string,
+    state: string,
+  }
   company: string
   published_at: string
   organization: { logo_url: string }
@@ -42,7 +46,7 @@ onMounted(async () => {
       <img :src="job.organization.logo_url ?? 'https://placehold.co/600x400'" alt="Job" class="job-image" />
       <div class="job-info">
         <h3>{{ job.title }} test</h3>
-        <p>{{ job.location }}</p>
+        <p>{{ job.location.country }}</p>
         <strong>{{ job.company }}</strong>
         <strong>{{ formattedDate(job.published_at) }}</strong>
       </div>
