@@ -71,7 +71,6 @@ onMounted(async () => {
   display: flex;
   gap: 1em;
   background: blue;
-  height: 200px;
 }
 
 .job-image {
