@@ -45,7 +45,7 @@ onMounted(async () => {
     <div class="job-card" v-for="job in jobs" :key="job.title">
       <img :src="job.organization.logo_url ?? 'https://placehold.co/600x400'" alt="Job" class="job-image" />
       <div class="job-info">
-        <h3>{{ job.title }} test</h3>
+        <h3>{{ job.title }}</h3>
         <p>{{ job.location.country }}</p>
         <strong>{{ job.company }}</strong>
         <strong>{{ formattedDate(job.published_at) }}</strong>
