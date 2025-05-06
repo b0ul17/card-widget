@@ -15,7 +15,8 @@ customElements.define('job-widget', JobCardElement)
 // Mount logic
 function mountWidget(): void {
   const script = document.currentScript as HTMLScriptElement | null
-  const query: string = script?.getAttribute('data-query') ?? 'q=frontend'
+  const query: string = script?.getAttribute('data-query') ?? 'terms=pentester'
+
   const countAttr = script?.getAttribute('data-count')
   const count: number = countAttr ? parseInt(countAttr, 10) : 3
 
